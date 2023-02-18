@@ -1,44 +1,40 @@
-u#include <stdio.h>
-#include <stdlib.h>
+#include <stdio.h>
 /**
- * main - main block
- * Description: Write a program that prints all possible
- * different combinations of two digits
- * Numbers must be separated by ,, followed by a space
- * The two digits must be different
- * 01 and 10 are considered the same combination of the two digits 0 and 1n
- * Return: 0
+ * main - print numbers from 00 to 99.
+(*
+ * Return: 0 on success
  */
 int main(void)
 {
-	int c;
-	int d;
-	int e = 0;
-	/* your code goes there */
-	while (e < 10)
+	int i = '0';
+	int j = '0';
+	int k = '0';
+
+	while (i <= '7')
 	{
-		d = 0;
-		while (d < 10)
+		while (j <= '8')
 		{
-			c = 0;
-			while (c < 10)
+			while (k <= '9')
 			{
-				if (c != d && d != e && e < d && d < c)
+				if (i < j && j < k)
 				{
-					putchar('0' + e);
-					putchar('0' + d);
-					putchar('0' + c);
-					if (c + d + e != 9 + 8 + 7)
+					putchar(i);
+					putchar(j);
+					putchar(k);
+					if (!(i == '7' && j == '8' && k == '9'))
 					{
 						putchar(',');
 						putchar(' ');
 					}
+
 				}
-				c++;
+				k++;
 			}
-			d++;
+			k = '0';
+			j++;
 		}
-		e++;
+		j = '0';
+		i++;
 	}
 	putchar('\n');
 	return (0);
