@@ -1,49 +1,68 @@
-#include <stdlib.h>
 #include "main.h"
+/**
+ *  *_strlen - count array
+ *   *@s: array of elements
+ *    *Return: 1
+ *     */
+
+int _strlen(char *s)
+{
+	unsigned int i;
+
+	i = 0;
+	while (s[i] != '\0') /*count character of string*/
+	{
+		i++;
+	}
+
+	return (i);
+}
 
 /**
- *  * *str_concat - concatenates two strings
- *   * @s1: string to concatenate
- *    * @s2: other string to concatenate
- *     *
- *      * Return: pointer to the new string created (Success), or NULL (Error)
- *       */
-char *str_concat(char *s1, char *s2)
+ *  *_strcpy - copy arrays
+ *   *@src: array of elements
+ *    *@dest: dest array
+ *     *Return: dest
+ *      */
+
+char *_strcpy(char *dest, char *src)
 {
-		char *s3;
-			unsigned int i = 0, j = 0, len1 = 0, len2 = 0;
+	int i = 0;
 
-				while (s1 && s1[len1])
-							len1++;
-					while (s2 && s2[len2])
-								len2++;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
 
-						s3 = malloc(sizeof(char) * (len1 + len2 + 1));
-							if (s3 == NULL)
-										return (NULL);
+	return (dest);
+}
 
-								i = 0;
-									j = 0;
+/**
+ *  *_strdup - array for prints a string
+ *   *@str: array of elements
+ *    *Return: pointer
+ *     */
 
-										if (s1)
-												{
-															while (i < len1)
-																		{
-																						s3[i] = s1[i];
-																									i++;
-																											}
-																}
+char *_strdup(char *str)
+{
+	char *dst;
+	unsigned int size;
 
-											if (s2)
-													{
-																while (i < (len1 + len2))
-																			{
-																							s3[i] = s2[j];
-																										i++;
-																													j++;
-																															}
-																	}
-												s3[i] = '\0';
+	if (str == 0)
+	{
+		return (NULL);
+	}
 
-													return (s3);
+	size = _strlen(str) + 1;
+
+	dst * (char *) malloc (size * sizeof(char));
+
+	if (dst == 0)
+	{
+		return (NULL);
+	}
+	_strcpy(dst, str);
+	return (dst);
 }
