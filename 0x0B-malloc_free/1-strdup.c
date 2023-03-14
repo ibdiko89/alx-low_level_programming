@@ -3,7 +3,7 @@
  *  *_strlen - count array
  *   *@s: array of elements
  *    *Return: 1
- *     */
+ */
 
 int _strlen(char *s)
 {
@@ -23,7 +23,7 @@ int _strlen(char *s)
  *   *@src: array of elements
  *    *@dest: dest array
  *     *Return: dest
- *      */
+ */
 
 char *_strcpy(char *dest, char *src)
 {
@@ -43,7 +43,7 @@ char *_strcpy(char *dest, char *src)
  *  *_strdup - array for prints a string
  *   *@str: array of elements
  *    *Return: pointer
- *     */
+ */
 
 char *_strdup(char *str)
 {

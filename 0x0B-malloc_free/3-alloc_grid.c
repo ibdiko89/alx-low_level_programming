@@ -4,7 +4,7 @@
  *   * @width: takes in width of grid
  *    * @height: height of grid
  *     * Return: grid with freed spaces
- *      */
+ */
 
 int **alloc_grid(int width, int height)
 {
