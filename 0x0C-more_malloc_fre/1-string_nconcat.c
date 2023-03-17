@@ -1,45 +1,43 @@
+#include <stdlib.h>
 #include "main.h"
-
 /**
- * string_nconcat - Concatenates two strings.
- * @s1: Pointer to first string.
- * @s2: Pointer to second string.
- * @n: Number of bytes from s2 to be concatenated to s1.
- *
- * Return: Pointer to new memory containing concatenated strings.
- * NULL if failed to allocate memory.
+ * string_nconcat - concatenate tw strings specially
+ * @s1: first string
+ * @s2: second string
+ * @n: number of bytes of s2
+ * Return: return a pointer
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i, j, len1, len2, tot_len;
-	char *mptr;
+	unsigned int cont1 = 0, cont2 = 0, i;
+	char *p = NULL;
 
-	for (len1 = 0; s1 && s1[len1]; len1++)
-		;
-
-	for (len2 = 0; s2 && s2[len2] && len2 < n; len2++)
-		;
-
-	if (n > len2)
+	if (s1 == NULL)
 	{
-		n = len2;
-		tot_len = len1 + n;
+		s1 = "";
 	}
-	else
+	if (s2 == NULL)
 	{
-		tot_len = len1 + n;
+		s2 = "";
 	}
-
-	mptr = malloc(sizeof(char) * tot_len + 1);
-	if (mptr == NULL)
+	while (s1[cont1] != '\0')
+		cont1++;
+	while (s2[cont2] != '\0')
+		cont2++;
+	if (n >= cont2)
+		n = cont2;
+	p = malloc(cont1 + n + 1);
+	if (!p)
 		return (NULL);
+	for (i = 0; i < cont1; i++)
+	{
+		p[i] = s1[i];
+	}
+	for (i = cont1; i < (cont1 + n); i++)
+	{
+		p[i] = s2[i - cont1];
+	}
+	p[i] = '\0';
+	return (p);
 
-	for (i = 0; s1 && s1[i]; i++)
-		mptr[i] = s1[i];
-
-	for (j = 0; s2 && j < n; j++, i++)
-		mptr[i] = s2[j];
-	mptr[i] = '\0';
-
-	return (mptr);
-}}
+}
