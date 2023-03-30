@@ -1,6 +1,6 @@
 /*
  * File: 4-free_list.c
- * Auth: Ibrahim Aljumah
+ * Auth: Ibrahim
  */
 
 #include "lists.h"
