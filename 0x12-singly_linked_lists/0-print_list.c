@@ -1,6 +1,6 @@
 /*
  * File: 0-print_list.c
- * Auth: Ibrahim Aljumah
+ * Auth: Ibrahim
  */
 
 #include "lists.h"
@@ -30,4 +30,4 @@ size_t print_list(const list_t *h)
 	}
 
 	return (nodes);
-}}
+}
