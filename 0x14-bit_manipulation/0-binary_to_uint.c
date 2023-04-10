@@ -1,29 +1,27 @@
-#include <stddef.h>
 #include "main.h"
-
-/**
- * binary_to_uint - convert the binary number to a decimal
- * @binary_str: points to a string of 0's and 1's
- * Return: decimal format of the binary
- * name :ibrahim code
+#include <stddef.h>
+/*
+ * converts binary to bits 0or 1
+ * name :ibrahim
+ * returns 0 if erro
+ * using main.h
  */
-unsigned int binary_to_uint(const char *binary_str)
+unsigned int binary_to_uint(const char *b)
 {
-	unsigned int decimal_val = 0; /* decimal_val holds the decimal format */
+	unsigned int result = 0;
+	unsigned int bit;
 
-	if (binary_str == NULL)
+	if (b == NULL)
 		return (0);
 
-	while (*binary_str)
+	for (bit = 1; *b; b++, bit <<= 1)
 	{
-		if (*binary_str == '1')
-			decimal_val = (decimal_val << 1) | 1;
-		else if (*binary_str == '0')
-			decimal_val <<= 1;
-		else
+		if (*b != '0' && *b != '1')
 			return (0);
-		binary_str++;
+		if (*b == '1')
+			result |= bit;
 	}
 
-	return (decimal_val);
+	return (result);
 }
+
