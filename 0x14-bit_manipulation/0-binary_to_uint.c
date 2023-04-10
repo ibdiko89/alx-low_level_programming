@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -16,7 +17,7 @@ unsigned int binary_to_uint(const char *b)
 	while (*b)
 	{
 		if (*b == '1')
-			nov  = (dec << 1) | 1;
+			nov  = (nov << 1) | 1;
 		else if (*b == '0')
 			nov <<= 1;
 		else
