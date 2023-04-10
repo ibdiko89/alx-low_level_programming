@@ -1,23 +1,21 @@
 #include "main.h"
 
 /**
- * binary_to_uint - converts binary number to an
+ * binary_to_uint - to  convert a binary number to an
  * unsigned int.
- * included main.h and _putchar
- * name :ibrahim
  * @b: binary.
- * exploring bit manipulation
- * Return: unsigned int
+ *name :ibrahim
+ * Return: unsigned int.
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int ui;
+	unsigned int ib;
 	int len, base_two;
 
 	if (!b)
 		return (0);
 
-	ui = 0;
+	ib = 0;
 
 	for (len = 0; b[len] != '\0'; len++)
 		;
@@ -31,9 +29,9 @@ unsigned int binary_to_uint(const char *b)
 
 		if (b[len] & 1)
 		{
-			ui += base_two;
+			ib  += base_two;
 		}
 	}
 
-	return (ui);
+	return (ib);
 }
